@@ -13,10 +13,8 @@ export default authMiddleware({
     // rewrite for domains
 
     const url = req.nextUrl;
-    console.log(url);
     const searchParams = url.searchParams.toString();
     let hostname = req.headers;
-    console.log(hostname.get("host"));
 
     const pathWithSearchParams = `${url.pathname}${
       searchParams.length > 0 ? searchParams : ""
@@ -34,8 +32,8 @@ export default authMiddleware({
       );
     }
 
-    if (url.pathname === "/sign-in}" || url.pathname === "/sign-up") {
-      return NextResponse.redirect(new URL(`/agency/sign-in`, req.url));
+    if (url.pathname === "/sign-in" || url.pathname === "/sign-up") {
+      return NextResponse.redirect(new URL("/agency/sign-in", req.url));
     }
 
     if (
