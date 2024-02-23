@@ -3,7 +3,7 @@ import React from "react";
 import { getAuthUserDetails } from "@/lib/queries";
 import { verifyAndAcceptInvitation } from "@/lib/queries";
 import { Plan } from "@prisma/client";
-import { red } from "tailwindcss/colors";
+import AgencyDetails from "@/components/forms/AgencyDetails";
 import { currentUser } from "@clerk/nextjs";
 
 type Props = {
