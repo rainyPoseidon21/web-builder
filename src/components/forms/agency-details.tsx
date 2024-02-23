@@ -18,6 +18,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import FileUpload from "../global/file-upload";
+import { Input } from "../ui/input";
 
 type Props = {
   data?: Partial<Agency>;
@@ -91,11 +92,47 @@ const AgencyDetails = ({ data }: Props) => {
                   <FormItem>
                     <FormLabel>Agency Logo</FormLabel>
                     <FormControl>
-                      <FileUpload></FileUpload>
+                      <FileUpload
+                        apiEndpoint="agencyLogo"
+                        onChange={field.onChange}
+                        value={field.value}
+                      />
                     </FormControl>
                   </FormItem>
                 )}
               ></FormField>
+              <div className="flex sm:flex-col md:flex-row justify-center gap-4">
+                <div className="flex-1">
+                  <FormField
+                    disabled={isLoading}
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Agency Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Your Agency Name" {...field} />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  ></FormField>
+                </div>
+                <div className="flex-1">
+                  <FormField
+                    disabled={isLoading}
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Agency Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Your Agency Name" {...field} />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  ></FormField>
+                </div>
+              </div>
             </form>
           </Form>
         </CardContent>
